@@ -1,0 +1,27 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# --- Model weights & training outputs (regenerate via train.py) ---
+*.pt
+weights/
+runs/
+
+# --- Generated outputs (reproducible) ---
+*.mp4
+*.avi
+*.mov
+*.csv
+*.cache
+sample_frame_*.png
+
+# --- OS / editor ---
+.DS_Store
+*.swp
+.idea/
+.vscode/

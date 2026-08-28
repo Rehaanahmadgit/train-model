@@ -1,0 +1,9 @@
+# YOLOv8-seg dataset config
+# path = dataset root (absolute, so it works from any working directory)
+path: /home/rehaan/Desktop/yolo/bundle_seg
+train: images/train   # relative to 'path'
+val: images/val       # relative to 'path'
+
+# single merged class (both original categories -> "bundle")
+names:
+  0: bundle
