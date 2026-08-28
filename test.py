@@ -16,7 +16,11 @@ import sys
 from ultralytics import YOLO
 
 # --- config ---
-BEST_PT = "runs/segment/runs/bundle_seg_train/weights/best.pt"
+# Prefer the committed model (best.pt in repo root); fall back to the
+# training output path if it exists locally (e.g. right after retraining).
+BEST_PT = "best.pt"
+if not os.path.exists(BEST_PT):
+    BEST_PT = "runs/segment/runs/bundle_seg_train/weights/best.pt"
 CONF_THRESHOLD = 0.25      # only count detections above this confidence
 DEFAULT_IMAGE = "images/val/8919efc6-frame_000008.png"
 

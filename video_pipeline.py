@@ -36,7 +36,11 @@ os.environ.setdefault("OPENCV_FFMPEG_LOGLEVEL", "-8")
 # ---------------------------------------------------------------------------
 # Defaults
 # ---------------------------------------------------------------------------
-BEST_PT = "runs/segment/runs/bundle_seg_train/weights/best.pt"
+# Prefer the committed model (best.pt in repo root); fall back to the
+# training output path if it exists locally (e.g. right after retraining).
+BEST_PT = "best.pt"
+if not os.path.exists(BEST_PT):
+    BEST_PT = "runs/segment/runs/bundle_seg_train/weights/best.pt"
 TRACKER = "bytetrack.yaml"   # ByteTrack tracker (ultralytics built-in)
 
 

@@ -7,8 +7,10 @@ venv/
 env/
 .ipynb_checkpoints/
 
-# --- Model weights & training outputs (regenerate via train.py) ---
+# --- Model weights & training outputs ---
+# ignore all .pt files EXCEPT the committed trained model (best.pt)
 *.pt
+!best.pt
 weights/
 runs/
 

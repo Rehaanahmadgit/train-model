@@ -28,6 +28,7 @@ for videos.
 - Training script (YOLOv8n-seg fine-tuning)
 - Single-image presence/absence test script
 - Full video tracking pipeline (ByteTrack + mask overlay + CSV log)
+- **Trained model weights (`best.pt`) ready to use — no retraining needed**
 
 ---
 
@@ -109,6 +110,14 @@ and saves results under `runs/segment/runs/bundle_seg_train/`.
 runs/segment/runs/bundle_seg_train/weights/best.pt   <- the trained model
 ```
 
+> The trained model is already committed as `best.pt` at the repo root, so
+> you can skip training and directly run `test.py` or `video_pipeline.py`.
+> After retraining, copy the new weights over it if you want to update the
+> committed model:
+> ```bash
+> cp runs/segment/runs/bundle_seg_train/weights/best.pt ./best.pt
+> ```
+
 Other training outputs (optional, for analysis): `results.csv` (per-epoch
 metrics), `results.png` (loss curves), confusion matrix, PR curves.
 
@@ -159,12 +168,13 @@ Options:
 .
 ├── convert_coco_to_yolo.py   # COCO JSON -> YOLO-seg format + train/val split
 ├── data.yaml                 # dataset config (class: bundle)
+├── best.pt                   # trained model (committed, ready to use)
 ├── train.py                  # YOLOv8n-seg fine-tuning script
 ├── test.py                   # single-image present/absent check
 ├── video_pipeline.py         # video tracking + render + log
 ├── images/                   # train/val images
 ├── labels/                   # train/val YOLO-seg labels
-└── runs/                     # training output (gitignored) -> best.pt lives here
+└── runs/                     # training output (gitignored)
 ```
 
 ---
